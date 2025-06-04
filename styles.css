@@ -1,12 +1,132 @@
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+:root {
+    --primary-color: #3498db;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --danger-color: #e74c3c;
 }
 
-header {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: white;
     text-align: center;
-    padding: 2rem;
-    background-color: #f4f4f4;
+    padding: 60px 0;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5 rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+.about {
+    padding: 60px 0;
+}
+
+.about_text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1 rem;
+    line-height: 1.8;
+}
+
+.skills {
+    padding: 40px 0;
+    background-color: var(--light-color);
+}
+
+.skills_list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+}
+
+.skill i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.contacts-link:hover {
+    color: var(--primary-color);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .skills_list {
+        flex-direction: column;
+        align-items: center;
+    }
 }
