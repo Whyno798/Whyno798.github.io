@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', animateSkills);
 
-idocument.getElementById('copyEmailBtn').addEventListener('click', function () {
+document.getElementById('copyEmailBtn').addEventListener('click', function () {
     const email = '79536860663@mail.ru';
 
     navigator.clipboard.writeText(email)

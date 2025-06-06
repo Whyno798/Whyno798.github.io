@@ -11,7 +11,9 @@
 .dark-mode {
     --bg-color: #1a1a1a;
     --text-color: #f0f0f0;
-    --header-bg: linear-gradient(135deg, #2c3e50, #1a1a1a)
+}
+.dark-mode .header {
+    background: linear-gradient(135deg, #2c3e50, #1a1a1a);
 }
 
 * {
@@ -162,7 +164,22 @@ body {
     height: 24px;
 }
 
+.theme-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+}
+
 .contact-btn {
+    position: relative;
     background: linear-gradient(135deg, #3498db, #2c3e50);
     color: white;
     border: none;
@@ -200,7 +217,7 @@ body {
 .contact-btn::after {
     content: "79536860663@mail.ru";
     position: absolute;
-    bottom: -62%;
+    bottom: -40px;
     left: 50%;
     transform: translateY(-50%);
     background: #333;
