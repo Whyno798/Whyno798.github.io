@@ -1,44 +1,33 @@
-function setupEmailCopy() {
-    const emailBtn = document.getElementById('copyEmailBtn');
+document.getElementById('copyEmailBtn').addEventListener('click', function () {
     const email = '79536860663@mail.ru';
 
-    if (!emailBtn) return;
-
-    emailBtn.addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(email);
-            emailBtn.innerHTML = '<i class="fas fa-check"</i> Скопировано!';
-            emailBtn.style.backgroundColor = '#2ecc71';
+    navigator.clipboard.writeText(email)
+    .then (() => {
+            this.innerHTML = '<i class="fas fa-check"</i> Скопировано!';
+            this.style.backgroundColor = '#2ecc71';
             setTimeout(() => {
-                emailBtn.innerHTML = '<i class="fas fa-copy"</i> Скопировать email';
-                emailBtn.style.backgroundColor = '';
+                this.innerHTML = '<i class="fas fa-copy"</i> Скопировать email';
+                this.style.background = '';
             }, 2000);
-        } catch (err) {
+        })
+        .catch(err => {
             console.error('Ошибка', err);
-            emailBtn.textContent = 'Ошибка :(';
-        }
+            this.textContent = 'Нажмите для копирования';
+        });
     });
-}
 
-document.addEventListener('DOMContentLoaded', () => {
-    setupEmailCopy();
-});
 
-function initTheme() {
-    const themeBtn = document.getElementById('themeToogle');
+document.getElementById('themeToogle').addEventListener('click', function() {
+    document.body.classList.toogle('dark-mode');
+    const icon = this.querySelector('i');
+    icon.classList.toogle('fa-moon');
+    icon.classList.toogle('fa-sun');
 
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-theme');
-        themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    localStorage.setItem('theme',
+        document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    })
+    
+    if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('#themeToogle i').classList = 'fas fa-sun';
     }
-
-    themeBtn.addEventListener('click', () => {
-        document.body.classList.toogle('dark-theme');
-        const icon = themeBtn.querySelector('i');
-        icon.classList.toogle('fa-moon');
-        icon.classList.toogle('fa-sun');
-
-        localStorage.setItem('theme',
-            document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-    });
-}
