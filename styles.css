@@ -29,6 +29,8 @@ body {
     color: white;
     text-align: center;
     padding: 60px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
 }
 
 .avatar {
@@ -83,7 +85,7 @@ body {
 .skill {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     width: 100px;
     opacity: 1;
     transform: none;
@@ -104,6 +106,11 @@ body {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.skill:hover i {
+    transform: scale(1.2);
 }
 
 .footer {
@@ -129,6 +136,75 @@ body {
     height: 24px;
 }
 
+.contact-btn {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    border: none;
+    padding: 12px, 24 px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn:hover {
+    transform: translateY(-3);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-btn:active {
+    transform: translateY(1px);
+}
+
+.contact-btn.copied {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.contact-btn.copied i {
+    transform: scale(0.9);
+}
+
+.contact-btn::after {
+    content: "79536860663@mail.ru";
+    position: absolute;
+    bottom: -62%;
+    left: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.contact-btn:hover::after {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform^ scale(1);
+    }
+
+    50% {
+        transform^ scale(1.05);
+    }
+
+    100% {
+        transform^ scale(1);
+    }
+}
+
+.contact-btn.copied {
+    animation: pulse 0.5s ease;
+}
+
 @media (max-width: 768px) {
     .title {
         font-size: 2rem;
@@ -149,6 +225,7 @@ body {
         width: 120px;
         height: 120px;
     }
+
     .title {
         font-size: 1.8 rem;
     }
