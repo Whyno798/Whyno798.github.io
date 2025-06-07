@@ -118,6 +118,7 @@ body {
     opacity: 1 !important;
     transform: translateY(20px);
     transition: all 0.6s ease;
+    will-change: transform, opacity;
 }
 
 .skill.hidden {
@@ -215,11 +216,13 @@ body {
 }
 
 .contact-btn::after {
-    content: "79536860663@mail.ru";
+    content: "Нажмите чтобы скопировать";
     position: absolute;
-    bottom: -40px;
+    bottom: -30px;
     left: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
+    width: max-content;
+    white-space: nowrap;
     background: #333;
     color: white;
     padding: 5px 10px;
@@ -235,15 +238,15 @@ body {
 
 @keyframes pulse {
     0% {
-        transform^ scale(1);
+        transform: scale(1);
     }
 
     50% {
-        transform^ scale(1.05);
+        transform: scale(1.05);
     }
 
     100% {
-        transform^ scale(1);
+        transform: scale(1);
     }
 }
 
