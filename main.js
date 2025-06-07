@@ -1,12 +1,30 @@
-document.getElementById('copyEmailBtn').addEventListener('click', async () => {
-    try {
-        await navigator.clipboard.writeText('79536860663@mail.ru');
-        const icon = document.querySelector('#copyEmailBtn i');
-        icon.classList.replace('fa-copy', 'fa check');
-        setTimeout(() => icon.classList.replace('fa-check', 'fa-copy'), 2000);
-    } catch (err) {
-        console.error("Ошибка при копировании:", err);
+document.addEventListener('DOMContentLoaded', function() {
+    const emailBtn = document.getElementById('copyEmailBtn');
+
+    if (!emailBtn) {
+        console.error('Кнопка с id="copyEmailBtn" не найдена! Проверьте HTML');
+        return;
     }
+
+    if (!navigator.clipboard) {
+        console.warn('Clipboard API не поддерживается');
+        emailBtn.style.opacity = '0.5';
+        return
+    }
+
+    emailBtn.addEventListener('click', async function () {
+        try {
+            await navigator.clipboard.writeText('79536860663@mail.ru');
+
+            const icon = this.querySelector('i');
+            if (icon) {
+                icon.classList.replace('fa-copy', 'fa-check');
+                setTimeout(() => icon.classList.replace('fa-check', 'fa-copy'), 2000);
+            }
+        } catch (err) {
+            console.error('Ошибка копирования:', err);
+        }
+    });
 });
 
 
@@ -20,11 +38,9 @@ themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('theme',
         document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-        themeBtn.querySelector('i').classList.toggle('fa-moon');
-        themeBtn.querySelector('i').classList.toggle('fa-sun');
+    themeBtn.querySelector('i').classList.toggle('fa-moon');
+    themeBtn.querySelector('i').classList.toggle('fa-sun');
 });
-
-document.addEventListener('DOMContentLoaded', animateSkills);
 
 const animateSkills = () => {
     const skills = document.querySelectorAll('.skill');

@@ -12,6 +12,7 @@
     --bg-color: #1a1a1a;
     --text-color: #f0f0f0;
 }
+
 .dark-mode .header {
     background: linear-gradient(135deg, #2c3e50, #1a1a1a);
 }
@@ -194,7 +195,9 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.contact-btn, .theme-btn {
+
+.contact-btn,
+.theme-btn {
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
